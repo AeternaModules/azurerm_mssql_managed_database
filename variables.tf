@@ -21,10 +21,10 @@ EOT
   type = map(object({
     managed_instance_id       = string
     name                      = string
-    short_term_retention_days = optional(number, 7)
+    short_term_retention_days = optional(number) # Default: 7
     tags                      = optional(map(string))
     long_term_retention_policy = optional(object({
-      immutable_backups_enabled = optional(bool, false)
+      immutable_backups_enabled = optional(bool) # Default: false
       monthly_retention         = optional(string)
       week_of_year              = optional(number)
       weekly_retention          = optional(string)
