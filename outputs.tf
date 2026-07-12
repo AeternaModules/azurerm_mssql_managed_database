@@ -1,3 +1,7 @@
+output "mssql_managed_databases_id" {
+  description = "Map of id values across all mssql_managed_databases, keyed the same as var.mssql_managed_databases"
+  value       = { for k, v in azurerm_mssql_managed_database.mssql_managed_databases : k => v.id }
+}
 output "mssql_managed_databases_long_term_retention_policy" {
   description = "Map of long_term_retention_policy values across all mssql_managed_databases, keyed the same as var.mssql_managed_databases"
   value       = { for k, v in azurerm_mssql_managed_database.mssql_managed_databases : k => v.long_term_retention_policy }
